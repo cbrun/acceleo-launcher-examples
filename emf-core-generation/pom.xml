@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <name>Export Website from Modeling Project</name>
+  <groupId>org.eclipse.acceleo.examples</groupId>
+  <artifactId>org.eclipse.acceleo.examples.equinox.launcher.aird
+  </artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <tycho-version>0.23.1</tycho-version>
+  </properties>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho.extras</groupId>
+        <artifactId>tycho-eclipserun-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <repositories>
+            <repository>
+              <id>Acceleo Launcher</id>
+              <layout>p2</layout>
+              <url>https://hudson.eclipse.org/acceleo/job/master-gerrit/802/PLATFORM=platform-mars/artifact/releng/org.eclipse.acceleo-updatesite/target/repository/
+              </url>
+            </repository>
+            <repository>
+              <id>Mars update site </id>
+              <layout>p2</layout>
+              <url>http://download.eclipse.org/releases/mars/</url>
+            </repository>            
+          </repositories>
+          <appArgLine>-consoleLog -application
+            org.eclipse.acceleo.equinox.AcceleoLauncher -data
+            ${project.build.directory}/wks -models
+            platform:/resource/org.eclipse.emf.examples.library/model/extlibrary.genmodel
+            -actions generate:org.eclipse.emf.codegen.ecore/org.eclipse.emf.codegen.ecore.generator.Generator
+	    -output ${project.build.directory}
+          </appArgLine>
+          <dependencies>
+            <!-- We need the actual launcher application -->
+            <dependency>
+              <artifactId>org.eclipse.acceleo.equinox.launcher
+              </artifactId>
+              <type>eclipse-feature</type>
+            </dependency>
+            <!-- The Eclipse feature packaging the code generator. -->
+            <dependency>
+              <artifactId>org.eclipse.emf.codegen
+              </artifactId>
+              <type>eclipse-feature</type>
+            </dependency>            
+          </dependencies>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>eclipse-run</goal>
+            </goals>
+            <phase>generate-sources</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
