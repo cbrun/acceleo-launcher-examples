@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<devtool:Product
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:devtool="http://www.mycompany.org/devtool"
+    xsi:schemaLocation="http://www.mycompany.org/devtool ../../com.mycompany.metamodel/model/devtool.ecore"
+    name="Acceleo"
+    current="//@versions.2">
+  <versions
+      id="3.0"/>
+  <versions
+      id="3.1"/>
+  <versions
+      id="3.2"/>
+  <features
+      name="Interpreter View"
+      initialRelease="//@versions.2"
+      description="The interpreter view allows the user to enter Acceleo expressions and to execute them without the need to launch a generation."/>
+  <features
+      name="Performances and Scalability"
+      initialRelease="//@versions.0"
+      description="Acceleo allows you to generate a huge amount of files from huge models.">
+    <updates
+        version="//@versions.2"
+        description="Compilation time have been drastically reduced."/>
+  </features>
+  <features
+      name="Debugger"
+      initialRelease="//@versions.0"
+      description="You can debug your generators directly from the Eclipse debugger."/>
+  <features
+      name="Profiler"
+      initialRelease="//@versions.0"
+      description="Acceleo provides a built-in profiler that can be used to keep track of evaluations and identify (and, hopefully, fix) bottlenecks in your generation process. The profiler is accessible through a right click on the module which execution you need to profile and the menu item Profile As => Acceleo Application."/>
+  <features
+      name="Authoring Environment"
+      initialRelease="//@versions.0"
+      description="Acceleo provides a complete editing environment to create your generation templates">
+    <updates
+        version="//@versions.2"
+        description="Documentation is available in completion and hover."/>
+  </features>
+  <features
+      name="Packaging and distributing your generators"
+      initialRelease="//@versions.0">
+    <updates
+        version="//@versions.1"
+        description="You might use Maven to package and deploy your generators to your team."/>
+  </features>
+</devtool:Product>

@@ -14,6 +14,7 @@
 
 
     <modules>
+        <module>com.mycompany.metamodel</module>
         <module>com.mycompany.generator</module>
         <module>com.mycompany.generator.update</module>                
         <module>com.mycompany.project</module>        

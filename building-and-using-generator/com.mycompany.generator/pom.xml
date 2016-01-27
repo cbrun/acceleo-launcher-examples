@@ -55,13 +55,13 @@
                         </entries>
                     </acceleoProject>
                     <packagesToRegister>
-<!--Start of user code fr.obeo.dsl.tycho.gen acceleo maven EPackages -->	
-             <packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>             
+	
+             <packageToRegister>com.mycompany.devtool.DevtoolPackage</packageToRegister>             
 <!-- TODO : you might need to reference the java qualified class name of your xxxPackage 
 
 Reading this http://wiki.eclipse.org/Acceleo/Maven would probably be a good start.                                          
 -->
-<!--End of user code-->                
+               
            </packagesToRegister>
        </configuration>
    </plugin>

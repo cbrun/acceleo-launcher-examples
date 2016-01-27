@@ -53,7 +53,7 @@
                     <appArgLine>-consoleLog -application
                         org.eclipse.acceleo.equinox.AcceleoLauncher -data
                         ${project.parent.build.directory}/wks -models
-                        platform:/resource/com.mycompany.project/model/extlibrary.ecore
+                        platform:/resource/com.mycompany.project/model/model.xmi
                         -actions generate:com.mycompany.generator/com.mycompany.generator.main.Generate
                         -output ${project.basedir}/src-gen
                     </appArgLine>

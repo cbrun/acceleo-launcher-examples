@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.mycompany.metamodel/src" modelPluginID="com.mycompany.metamodel"
+    modelName="Devtool" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>devtool.ecore</foreignModel>
+  <genPackages prefix="Devtool" basePackage="com.mycompany" disposableProviderFactory="true"
+      ecorePackage="devtool.ecore#/">
+    <genClasses ecoreClass="devtool.ecore#//Product">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//Product/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference devtool.ecore#//Product/versions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference devtool.ecore#//Product/current"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference devtool.ecore#//Product/features"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//Feature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//Feature/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference devtool.ecore#//Feature/initialRelease"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//Feature/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference devtool.ecore#//Feature/updates"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//Update">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference devtool.ecore#//Update/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//Update/description"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//Version">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//Version/id"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
