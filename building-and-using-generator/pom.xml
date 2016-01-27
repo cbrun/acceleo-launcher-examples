@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <name>Export Website from Modeling Project</name>
+    <groupId>org.eclipse.acceleo.examples</groupId>
+    <artifactId>org.eclipse.acceleo.examples.equinox.launcher.withgenerator</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <tycho-version>0.23.1</tycho-version>
+    </properties>
+
+
+
+    <modules>
+        <module>com.mycompany.generator</module>
+        <module>com.mycompany.generator.update</module>                
+        <module>com.mycompany.project</module>        
+    </modules>
+
+    <repositories>    
+        <repository><id>Mars release train</id><layout>p2</layout>
+            <url>http://download.eclipse.org/releases/mars</url>
+        </repository>                
+    </repositories>    
+
+    <build>      
+
+
+
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-maven-plugin</artifactId>
+                <version>${tycho-version}</version>
+                <extensions>true</extensions>		
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.eclipse.tycho</groupId>
+                    <artifactId>tycho-compiler-plugin</artifactId>
+                    <version>${tycho-version}</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>                                
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

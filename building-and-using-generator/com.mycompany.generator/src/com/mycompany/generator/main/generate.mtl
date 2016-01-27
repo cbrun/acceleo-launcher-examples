@@ -1,0 +1,18 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/emf/2002/Ecore')]
+
+
+[template public generateJava(anEPackage : EPackage)]
+[comment @main/]
+[file (anEPackage.name.toUpperFirst() + '.java', false, 'UTF-8')]
+public class [anEPackage.name.toUpperFirst()/] {
+
+[for (claz : EClass | anEPackage.eClassifiers->filter(EClass))]
+  class [claz.name.toUpperFirst()/] {
+  }
+
+[/for]
+
+}
+[/file]
+[/template]

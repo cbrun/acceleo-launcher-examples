@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.eclipse.acceleo.examples</groupId>
+        <artifactId>org.eclipse.acceleo.examples.equinox.launcher.withgenerator</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+    <packaging>eclipse-plugin</packaging>	
+    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>com.mycompany.generator</artifactId>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.acceleo</groupId>
+            <artifactId>org.eclipse.acceleo.maven</artifactId>
+            <version>3.5.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>    
+
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.acceleo</groupId>
+                <artifactId>org.eclipse.acceleo.maven</artifactId>
+                <version>3.5.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>acceleo-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <useBinaryResources>false</useBinaryResources>
+                    <usePlatformResourcePath>true</usePlatformResourcePath>
+                    <acceleoProject>
+                        <root>${project.basedir}</root>
+                        <entries>
+                            <entry>
+                                <input>src</input>
+                                <output>target/classes</output>
+                            </entry>
+                        </entries>
+                    </acceleoProject>
+                    <packagesToRegister>
+<!--Start of user code fr.obeo.dsl.tycho.gen acceleo maven EPackages -->	
+             <packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>             
+<!-- TODO : you might need to reference the java qualified class name of your xxxPackage 
+
+Reading this http://wiki.eclipse.org/Acceleo/Maven would probably be a good start.                                          
+-->
+<!--End of user code-->                
+           </packagesToRegister>
+       </configuration>
+   </plugin>
+    </plugins>
+</build>
+</project>
