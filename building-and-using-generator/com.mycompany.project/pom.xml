@@ -7,9 +7,17 @@
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
-    <packaging>eclipse-plugin</packaging>
+    <packaging>pom</packaging>
     <artifactId>com.mycompany.project</artifactId>
 
+
+    <!-- We specify this dependency to be sure the generator is going to be built and packaged before this module will get built.-->
+    <dependencies>
+        <dependency><artifactId>com.mycompany.generator.update</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <groupId>org.eclipse.acceleo.examples</groupId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
