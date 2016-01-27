@@ -19,6 +19,21 @@
         <module>com.mycompany.generator.update</module>                
         <module>com.mycompany.project</module>        
     </modules>
+    
+    <pluginRepositories>
+     <pluginRepository>
+       <id>codehaus.snapshots</id>
+       <url>http://snapshots.repository.codehaus.org/</url>
+     </pluginRepository>
+     <pluginRepository>
+       <id>Eclipse - Acceleo Snapshots</id>
+       <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+     </pluginRepository>
+     <pluginRepository>
+       <id>Eclipse - Acceleo Release</id>
+       <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+     </pluginRepository>
+   </pluginRepositories>
 
     <repositories>    
         <repository><id>Mars release train</id><layout>p2</layout>
