@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>0.23.1</tycho-version>
+		<tycho-version>0.24.0</tycho-version>
 	</properties>
 
 
@@ -25,7 +25,7 @@
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>tycho-eclipserun-plugin</artifactId>
 				<version>${tycho-version}</version>
-				<configuration>
+				<configuration>					
 					<repositories>
 						<repository>
 							<id>Acceleo Launcher</id>
@@ -44,8 +44,7 @@
 							<url>http://download.eclipse.org/umlgen/updates/releases/1.0.0/mars</url>
 						</repository>
 					</repositories>
-					<appArgLine>-consoleLog -application org.eclipse.acceleo.equinox.AcceleoLauncher -data ${project.basedir} -actions launch:/NonRegressionModel/generateJavaFromUML.launch
-					</appArgLine>
+<!-- 										 -->
 					<dependencies>
 						<!-- We need the actual launcher application -->
 						<dependency>
@@ -62,6 +61,15 @@
 							<type>eclipse-plugin</type>
 						</dependency>				
 					</dependencies>
+					<applicationsArgs>
+					  <args>-consoleLog</args>
+					  <args>-application</args>
+					  <args>org.eclipse.acceleo.equinox.AcceleoLauncher</args>
+					  <args>-data</args>
+					  <args>${project.basedir}</args>
+					  <args>-actions</args>
+					  <args>launch:/NonRegressionModel/generateJavaFromUML.launch</args>
+					</applicationsArgs>
 				</configuration>
 				<executions>
 					<execution>
