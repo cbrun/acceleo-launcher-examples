@@ -1,85 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-	<modelVersion>4.0.0</modelVersion>
-	<name>Java code from UML model</name>
-	<groupId>org.eclipse.acceleo.examples</groupId>
-	<artifactId>org.eclipse.acceleo.examples.equinox.launcher.uml2java
+  <modelVersion>4.0.0</modelVersion>
+  <name>Java code from UML model</name>
+  <groupId>org.eclipse.acceleo.examples</groupId>
+  <artifactId>org.eclipse.acceleo.examples.equinox.launcher.uml2java
 	</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-	<properties>
-		<tycho-version>0.24.0</tycho-version>
-	</properties>
+  <properties>
+    <tycho-version>0.24.0</tycho-version>
+  </properties>
 
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<extensions>true</extensions>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho.extras</groupId>
-				<artifactId>tycho-eclipserun-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>					
-					<repositories>
-						<repository>
-							<id>Acceleo Launcher</id>
-							<layout>p2</layout>
-							<url>https://hudson.eclipse.org/acceleo/job/master-gerrit/1019/PLATFORM=platform-neon/artifact/releng/org.eclipse.acceleo-updatesite/target/repository/
-							</url>
-						</repository>
-						<repository>
-							<id>Mars update site </id>
-							<layout>p2</layout>
-							<url>http://download.eclipse.org/releases/mars/</url>
-						</repository>
-						<repository>
-							<id>UML Generators</id>
-							<layout>p2</layout>
-							<url>http://download.eclipse.org/umlgen/updates/releases/1.0.0/mars</url>
-						</repository>
-					</repositories>
-<!-- 										 -->
-					<dependencies>
-						<!-- We need the actual launcher application -->
-						<dependency>
-							<artifactId>org.eclipse.acceleo.equinox.launcher</artifactId>
-							<type>eclipse-plugin</type>
-						</dependency>
-						<!-- The Eclipse feature packaging the code generator. -->
-						<dependency>
-							<artifactId>org.eclipse.umlgen.gen.java.feature</artifactId>
-							<type>eclipse-feature</type>
-						</dependency>						
-						<dependency>
-							<artifactId>org.eclipse.umlgen.gen.java.ui</artifactId>
-							<type>eclipse-plugin</type>
-						</dependency>				
-					</dependencies>
-					<applicationsArgs>
-					  <args>-consoleLog</args>
-					  <args>-application</args>
-					  <args>org.eclipse.acceleo.equinox.AcceleoLauncher</args>
-					  <args>-data</args>
-					  <args>${project.basedir}</args>
-					  <args>-actions</args>
-					  <args>launch:/NonRegressionModel/generateJavaFromUML.launch</args>
-					</applicationsArgs>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>eclipse-run</goal>
-						</goals>
-						<phase>generate-sources</phase>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho.extras</groupId>
+        <artifactId>tycho-eclipserun-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <repositories>
+            <repository>
+              <id>Acceleo Launcher</id>
+              <layout>p2</layout>
+              <url>http://download.eclipse.org/acceleo/updates/nightly/latest/</url>
+            </repository>
+            <repository>
+              <id>Mars update site </id>
+              <layout>p2</layout>
+              <url>http://download.eclipse.org/releases/mars/</url>
+            </repository>
+            <repository>
+              <id>UML Generators</id>
+              <layout>p2</layout>
+              <url>http://download.eclipse.org/umlgen/updates/releases/1.0.0/mars</url>
+            </repository>
+          </repositories>
+          <!-- -->
+          <dependencies>
+            <!-- We need the actual launcher application -->
+            <dependency>
+              <artifactId>org.eclipse.acceleo.equinox.launcher</artifactId>
+              <type>eclipse-plugin</type>
+            </dependency>
+            <!-- The Eclipse feature packaging the code generator. -->
+            <dependency>
+              <artifactId>org.eclipse.umlgen.gen.java.feature</artifactId>
+              <type>eclipse-feature</type>
+            </dependency>
+            <dependency>
+              <artifactId>org.eclipse.umlgen.gen.java.ui</artifactId>
+              <type>eclipse-plugin</type>
+            </dependency>
+          </dependencies>
+          <applicationsArgs>
+            <args>-consoleLog</args>
+            <args>-application</args>
+            <args>org.eclipse.acceleo.equinox.AcceleoLauncher</args>
+            <args>-data</args>
+            <args>${project.basedir}</args>
+            <args>-actions</args>
+            <args>launch:/NonRegressionModel/generateJavaFromUML.launch</args>
+          </applicationsArgs>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>eclipse-run</goal>
+            </goals>
+            <phase>generate-sources</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

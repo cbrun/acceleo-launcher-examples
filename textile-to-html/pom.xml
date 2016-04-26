@@ -30,7 +30,7 @@
             <repository>
               <id>Acceleo Launcher</id>
               <layout>p2</layout>
-              <url>https://hudson.eclipse.org/acceleo/job/master-gerrit/802/PLATFORM=platform-mars/artifact/releng/org.eclipse.acceleo-updatesite/target/repository/</url>
+              <url>http://download.eclipse.org/acceleo/updates/nightly/latest/</url>
             </repository>
             <repository>
               <id>Mars update site </id>
