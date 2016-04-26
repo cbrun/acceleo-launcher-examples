@@ -1,85 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.eclipse.acceleo.examples</groupId>
-        <artifactId>org.eclipse.acceleo.examples.equinox.launcher.withgenerator</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../</relativePath>
-    </parent>
-    <packaging>pom</packaging>
-    <artifactId>com.mycompany.project</artifactId>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.eclipse.acceleo.examples</groupId>
+    <artifactId>org.eclipse.acceleo.examples.equinox.launcher.withgenerator</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../</relativePath>
+  </parent>
+  <packaging>pom</packaging>
+  <artifactId>com.mycompany.project</artifactId>
 
 
-    <!-- We specify this dependency to be sure the generator is going to be built and packaged before this module will get built.-->
-    <dependencies>
-        <dependency><artifactId>com.mycompany.generator.update</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <groupId>org.eclipse.acceleo.examples</groupId>
-        </dependency>
-    </dependencies>
+  <!-- We specify this dependency to be sure the generator is going to be 
+    built and packaged before this module will get built. -->
+  <dependencies>
+    <dependency>
+      <artifactId>com.mycompany.generator.update</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <groupId>org.eclipse.acceleo.examples</groupId>
+    </dependency>
+  </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-maven-plugin</artifactId>
-                <version>${tycho-version}</version>
-                <extensions>true</extensions>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.tycho.extras</groupId>
-                <artifactId>tycho-eclipserun-plugin</artifactId>
-                <version>${tycho-version}</version>
-                <configuration>
-                    <repositories>
-                        <repository>
-                            <id>Acceleo Launcher</id>
-                            <layout>p2</layout>
-                            <url>https://hudson.eclipse.org/acceleo/job/master-gerrit/802/PLATFORM=platform-mars/artifact/releng/org.eclipse.acceleo-updatesite/target/repository/
-                            </url>
-                        </repository>
-                        <repository>
-                            <id>Just built</id>
-                            <layout>p2</layout>
-                            <url>file:${project.basedir}/../com.mycompany.generator.update/target/repository</url>
-                        </repository>
-                        <repository>
-                            <id>To get dependencies</id>
-                            <layout>p2</layout>
-                            <url>http://download.eclipse.org/releases/mars</url>
-                        </repository>
-                    </repositories>
-                    <appArgLine>-consoleLog -application
-                        org.eclipse.acceleo.equinox.AcceleoLauncher -data
-                        ${project.parent.build.directory}/wks -models
-                        platform:/resource/com.mycompany.project/model/model.xmi
-                        -actions generate:com.mycompany.generator/com.mycompany.generator.main.Generate
-                        -output ${project.basedir}/src-gen
-                    </appArgLine>
-                    <dependencies>
-                        <!-- We need the actual launcher application -->
-                        <dependency>
-                            <artifactId>org.eclipse.acceleo.equinox.launcher
-                            </artifactId>
-                            <type>eclipse-feature</type>
-                        </dependency>
-                        <!-- The Eclipse feature packaging the code generator. -->
-                        <dependency>
-                            <artifactId>com.mycompany.generator</artifactId>
-                            <type>eclipse-plugin</type>	      
-                        </dependency>            
-                    </dependencies>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>eclipse-run</goal>
-                        </goals>
-                        <phase>generate-sources</phase>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho.extras</groupId>
+        <artifactId>tycho-eclipserun-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <repositories>
+            <repository>
+              <id>Acceleo Launcher</id>
+              <layout>p2</layout>
+              <url>https://hudson.eclipse.org/acceleo/job/master-gerrit/802/PLATFORM=platform-mars/artifact/releng/org.eclipse.acceleo-updatesite/target/repository/
+              </url>
+            </repository>
+            <repository>
+              <id>Just built</id>
+              <layout>p2</layout>
+              <url>file:${project.basedir}/../com.mycompany.generator.update/target/repository</url>
+            </repository>
+            <repository>
+              <id>To get dependencies</id>
+              <layout>p2</layout>
+              <url>http://download.eclipse.org/releases/mars</url>
+            </repository>
+          </repositories>
+          <applicationsArgs>
+            <args>-consoleLog</args>
+            <args>-application</args>
+            <args>org.eclipse.acceleo.equinox.AcceleoLauncher</args>
+            <args>-data</args>
+            <args>${project.parent.build.directory}/wks</args>
+            <args>-models</args>
+            <args>platform:/resource/com.mycompany.project/model/model.xmi</args>
+            <args>-output</args>
+            <args>${project.basedir}/src-gen</args>
+            <args>-actions</args>
+            <args>generate:com.mycompany.generator/com.mycompany.generator.main.Generate</args>
+          </applicationsArgs>
+          <dependencies>
+            <!-- We need the actual launcher application -->
+            <dependency>
+              <artifactId>org.eclipse.acceleo.equinox.launcher
+              </artifactId>
+              <type>eclipse-feature</type>
+            </dependency>
+            <!-- The Eclipse feature packaging the code generator. -->
+            <dependency>
+              <artifactId>com.mycompany.generator</artifactId>
+              <type>eclipse-plugin</type>
+            </dependency>
+          </dependencies>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>eclipse-run</goal>
+            </goals>
+            <phase>generate-sources</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

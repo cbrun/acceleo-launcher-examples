@@ -9,7 +9,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>0.23.1</tycho-version>
+    <tycho-version>0.24.0</tycho-version>
   </properties>
 
 
@@ -30,8 +30,7 @@
             <repository>
               <id>Acceleo Launcher</id>
               <layout>p2</layout>
-              <url>https://hudson.eclipse.org/acceleo/job/master-gerrit/802/PLATFORM=platform-mars/artifact/releng/org.eclipse.acceleo-updatesite/target/repository/
-              </url>
+              <url>https://hudson.eclipse.org/acceleo/job/master-gerrit/802/PLATFORM=platform-mars/artifact/releng/org.eclipse.acceleo-updatesite/target/repository/</url>
             </repository>
             <repository>
               <id>Mars update site </id>
@@ -41,16 +40,23 @@
             <repository>
               <id>Website Generator</id>
               <layout>p2</layout>
-              <url>http://www.obeo.fr/download/release/designer/8.1/community/latest/repository</url>
+              <url>http://www.obeo.fr/download/release/designer/8.1/community/latest/repository
+              </url>
             </repository>
           </repositories>
-          <appArgLine>-consoleLog -application
-            org.eclipse.acceleo.equinox.AcceleoLauncher -data
-            ${project.build.directory}/wks -models
-            platform:/resource/org.eclipse.emf.examples.library/model/extlibrary.aird
-            -output ${project.build.directory}/website/ -actions
-            generate:fr.obeo.dsl.designer.gen.html/fr.obeo.dsl.designer.gen.html.main.GenerateSite
-          </appArgLine>
+          <applicationsArgs>
+            <args>-consoleLog</args>
+            <args>-application</args>
+            <args>org.eclipse.acceleo.equinox.AcceleoLauncher</args>
+            <args>-data</args>
+            <args>${project.build.directory}/wks</args>
+            <args>-models</args>
+            <args>platform:/resource/org.eclipse.emf.examples.library/model/extlibrary.aird</args>
+            <args>-output</args>
+            <args>${project.build.directory}/website/</args>
+            <args>-actions</args>
+            <args>generate:fr.obeo.dsl.designer.gen.html/fr.obeo.dsl.designer.gen.html.main.GenerateSite</args>
+          </applicationsArgs>
           <dependencies>
             <!-- We need the actual launcher application -->
             <dependency>

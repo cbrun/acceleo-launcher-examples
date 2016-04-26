@@ -1,76 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-	<modelVersion>4.0.0</modelVersion>
-	<name>Export HTML from Textile markups</name>
-	<groupId>org.eclipse.acceleo.examples</groupId>
-	<artifactId>org.eclipse.acceleo.examples.equinox.launcher.aird
+  <modelVersion>4.0.0</modelVersion>
+  <name>Export HTML from Textile markups</name>
+  <groupId>org.eclipse.acceleo.examples</groupId>
+  <artifactId>org.eclipse.acceleo.examples.equinox.launcher.aird
 	</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-	<properties>
-		<tycho-version>0.23.1</tycho-version>
-	</properties>
+  <properties>
+    <tycho-version>0.24.0</tycho-version>
+  </properties>
 
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<extensions>true</extensions>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho.extras</groupId>
-				<artifactId>tycho-eclipserun-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<repositories>
-						<repository>
-							<id>Acceleo Launcher</id>
-							<layout>p2</layout>
-							<url>https://hudson.eclipse.org/acceleo/job/master-gerrit/802/PLATFORM=platform-mars/artifact/releng/org.eclipse.acceleo-updatesite/target/repository/
-							</url>
-						</repository>
-						<repository>
-							<id>Mars update site </id>
-							<layout>p2</layout>
-							<url>http://download.eclipse.org/releases/luna/</url>
-						</repository>
-						
-					</repositories>
-					<appArgLine>-consoleLog -application org.eclipse.acceleo.equinox.AcceleoLauncher
-					-data ${project.build.directory}/wks
-					-output ./src-gen 
-					-models platform:/resource/org.eclipse.sirius.doc/doc/user/diagrams/Diagrams.textile 
-					-actions generate:org.eclipse.mylyn.docs.intent.markup.gen/org.eclipse.mylyn.docs.intent.markup.gen.files.Html</appArgLine>
-					<dependencies>
-						<!-- We need the actual launcher application -->
-						<dependency>
-							<artifactId>org.eclipse.acceleo.equinox.launcher</artifactId>
-							<type>eclipse-plugin</type>
-						</dependency>
-						<!-- The Eclipse feature packaging the code generator. -->
-						<dependency>
-							<artifactId>org.eclipse.mylyn.docs.intent.markup.feature</artifactId>
-							<type>eclipse-feature</type>
-						</dependency>						
-						<dependency>
-							<artifactId>org.eclipse.mylyn.docs.intent.markup.gen</artifactId>
-							<type>eclipse-plugin</type>
-						</dependency>
-					</dependencies>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>eclipse-run</goal>
-						</goals>
-						<phase>generate-sources</phase>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho.extras</groupId>
+        <artifactId>tycho-eclipserun-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <repositories>
+            <repository>
+              <id>Acceleo Launcher</id>
+              <layout>p2</layout>
+              <url>https://hudson.eclipse.org/acceleo/job/master-gerrit/802/PLATFORM=platform-mars/artifact/releng/org.eclipse.acceleo-updatesite/target/repository/</url>
+            </repository>
+            <repository>
+              <id>Mars update site </id>
+              <layout>p2</layout>
+              <url>http://download.eclipse.org/releases/luna/</url>
+            </repository>
+
+          </repositories>
+          <applicationsArgs>
+            <args>-consoleLog</args>
+            <args>-application</args>
+            <args>org.eclipse.acceleo.equinox.AcceleoLauncher</args>
+            <args>-data</args>
+            <args>${project.build.directory}/wks</args>
+            <args>-models</args>
+            <args>platform:/resource/org.eclipse.sirius.doc/doc/user/diagrams/Diagrams.textile</args>
+            <args>-output</args>
+            <args>./src-gen</args>
+            <args>-actions</args>
+            <args>generate:org.eclipse.mylyn.docs.intent.markup.gen/org.eclipse.mylyn.docs.intent.markup.gen.files.Html</args>
+          </applicationsArgs>
+          <dependencies>
+            <!-- We need the actual launcher application -->
+            <dependency>
+              <artifactId>org.eclipse.acceleo.equinox.launcher</artifactId>
+              <type>eclipse-plugin</type>
+            </dependency>
+            <!-- The Eclipse feature packaging the code generator. -->
+            <dependency>
+              <artifactId>org.eclipse.mylyn.docs.intent.markup.feature</artifactId>
+              <type>eclipse-feature</type>
+            </dependency>
+            <dependency>
+              <artifactId>org.eclipse.mylyn.docs.intent.markup.gen</artifactId>
+              <type>eclipse-plugin</type>
+            </dependency>
+          </dependencies>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>eclipse-run</goal>
+            </goals>
+            <phase>generate-sources</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
