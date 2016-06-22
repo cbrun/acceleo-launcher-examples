@@ -28,20 +28,14 @@
         <configuration>
           <repositories>
             <repository>
-              <id>Acceleo Launcher</id>
+              <id>Neon update site </id>
               <layout>p2</layout>
-              <url>http://download.eclipse.org/acceleo/updates/nightly/latest/</url>
-            </repository>
-            <repository>
-              <id>Mars update site </id>
-              <layout>p2</layout>
-              <url>http://download.eclipse.org/releases/mars/</url>
+              <url>http://download.eclipse.org/releases/neon/</url>
             </repository>
             <repository>
               <id>UML 2 Embedded C Generator</id>
               <layout>p2</layout>
-              <url>http://download.eclipse.org/umlgen/updates/nightly/latest/mars
-              </url>
+              <url>http://download.eclipse.org/umlgen/updates/nightly/latest/mars</url>
             </repository>
           </repositories>
           <applicationsArgs>
@@ -65,8 +59,12 @@
             </dependency>
             <!-- The Eclipse feature packaging the code generator. -->
             <dependency>
-              <artifactId>org.eclipse.umlgen.gen.embedded.c.feature</artifactId>
-              <type>eclipse-feature</type>
+              <artifactId>org.eclipse.umlgen.gen.embedded.c</artifactId>
+              <type>eclipse-plugin</type>
+            </dependency>
+            <dependency>
+              <artifactId>org.eclipse.umlgen.gen.embedded.c.profile</artifactId>
+              <type>eclipse-plugin</type>
             </dependency>
           </dependencies>
         </configuration>
