@@ -35,9 +35,9 @@
 
   <repositories>
     <repository>
-      <id>Mars release train</id>
+      <id>Neon release train</id>
       <layout>p2</layout>
-      <url>http://download.eclipse.org/releases/mars</url>
+      <url>http://download.eclipse.org/releases/neon</url>
     </repository>
   </repositories>
 

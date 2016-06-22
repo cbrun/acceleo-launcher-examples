@@ -36,19 +36,14 @@
         <configuration>
           <repositories>
             <repository>
-              <id>Acceleo Launcher</id>
-              <layout>p2</layout>
-              <url>http://download.eclipse.org/acceleo/updates/nightly/latest/</url>
-            </repository>
-            <repository>
               <id>Just built</id>
               <layout>p2</layout>
               <url>file:${project.basedir}/../com.mycompany.generator.update/target/repository</url>
             </repository>
             <repository>
-              <id>To get dependencies</id>
+              <id>Neon To get launcher and dependencies</id>
               <layout>p2</layout>
-              <url>http://download.eclipse.org/releases/mars</url>
+              <url>http://download.eclipse.org/releases/neon</url>
             </repository>
           </repositories>
           <applicationsArgs>
