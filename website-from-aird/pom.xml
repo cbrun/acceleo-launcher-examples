@@ -35,7 +35,7 @@
             <repository>
               <id>Website Generator</id>
               <layout>p2</layout>
-              <url>http://www.obeo.fr/download/release/designer/8.1/community/latest/repository
+              <url>http://www.obeo.fr/download/release/designer/9.0/community/latest/repository
               </url>
             </repository>
           </repositories>
